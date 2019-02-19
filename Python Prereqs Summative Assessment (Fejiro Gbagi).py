@@ -1,7 +1,7 @@
 import random as rd
 import datetime
 
-#Append data to file so data is not overwritten historical data and no data is lost
+#Append data to file so historical data is not overwritten and no data is lost
 fhand = open("generated_output.txt","a+")
 
 #Date and time stamp each interval of data collection
@@ -9,7 +9,7 @@ now = datetime.datetime.now()
 fhand.write('Date and Time Stamp: ' + str(now))
 fhand.write('\n \n')
 
-#For loop to generate data set
+#Loop to generate data set
 for i in range(1,33):
     readings = [rd.random() for reading in range(1,17)]
     fhand.write('Sensor {0}: {1}\n '.format(i,readings))
@@ -19,7 +19,7 @@ fhand.close() #Close File
 
 
 def corrupted_data():
-    #Open previously generated output file to check and create a new file for recording errors
+    #Open previously generated output file and create a new file for recording errors
     xfile = open("error_log.txt","a+")
     yfile = open("generated_output.txt","r")
     stamp = ''
