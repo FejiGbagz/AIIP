@@ -1,11 +1,11 @@
 import random as rd
-import datetime
+import datetime as dt
 
 #Append data to file so historical data is not overwritten and no data is lost
 fhand = open("generated_output.txt","a+")
 
-#Date and time stamp each interval of data collection
-now = datetime.datetime.now()
+#Date and timestamp each interval of data collection
+now = dt.datetime.now()
 fhand.write('Date and Time Stamp: ' + str(now))
 fhand.write('\n \n')
 
@@ -25,7 +25,7 @@ def corrupted_data():
     stamp = ''
     for line in yfile:
         line = line.rstrip()
-        if line.startswith('2019'):
+        if '2019-' in line:
             stamp = line #Store last TimeStamp
         if not 'err' in line:
             continue
